@@ -21,6 +21,7 @@
         display: inline-block; 
         cursor: pointer;
         color: aliceblue;
+        transition: font-size 0.5s;
 }
 .Home:hover{
     font-size: 20px;
@@ -34,7 +35,9 @@
         display: inline-block; 
         cursor: pointer;
         color: aliceblue;
-}
+        transition: font-size 0.5s;
+    }
+
 .User:hover{
     font-size: 20px;
 }
@@ -47,7 +50,9 @@
         display: inline-block; 
         cursor: pointer;
         color: aliceblue; 
-}
+        transition: font-size 0.5s;
+    }
+
 .Login:hover{
     font-size: 20px;
 }
@@ -60,7 +65,76 @@
         display: inline-block; 
         cursor: pointer;
         color: aliceblue;
+        transition: font-size 0.5s;
 }
+
+.dropdown-menu {
+    display: none;
+    background-color: #343a40; /* Colore di sfondo */
+    border: 1px; /* Nessun bordo */
+    border-radius: 1px; /* Nessun bordo arrotondato */
+    padding: 1px; /* Nessun riempimento */
+}
+
+.dropdown-item {
+    color: #ffffff; /* Colore del testo */
+    background-color: #000000; /* Colore di sfondo */
+    border-bottom: 1px solid #ffffff; /* Bordo inferiore */
+    border-radius: 5px; /* Bordo arrotondato */
+    transition: background-color 0.5s; /* Transizione */
+    font-weight: bold; /* Testo in grassetto */
+}
+
+.dropdown-item:last-child {
+    border-bottom: none; /* Rimuove il bordo inferiore dall'ultimo pulsante */
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-item:hover {
+    background-color: #ffffff; /* Cambia colore di sfondo al passaggio del mouse */
+    color: rgb(0, 0, 0);
+}
+
 .Books:hover{
     font-size: 20px;
+}
+
+.search-bar {
+    position: relative; /* Posizione relativa */
+}
+.search-bar input[type="search"] {
+    border: none; /* Rimuove il bordo */
+    border-radius: 20px; /* Bordo arrotondato */
+    padding: 10px 20px; /* Riempimento */
+    background-color: #ffffff; /* Colore di sfondo */
+    box-shadow: none; /* Nessuna ombra */
+    width: 200px; /* Larghezza */
+    font-weight: bold; /* Testo in grassetto */
+    transition: background-color 2s; /* Transizione */
+}
+.item-search {
+    color: #ffffff; /* Colore del testo */
+    background-color: #6c757d; /* Colore di sfondo */
+    border: none; /* Rimuove il bordo */
+    border-radius: 20px; /* Bordo arrotondato */
+    padding: 10px 20px; /* Riempimento */
+    transition: background-color 0.3s; /* Transizione */
+    width: 50px; /* Larghezza desiderata */
+    height: auto; /* Altezza automatica mantenendo l'aspetto originale */
+}
+.item-search:hover {
+    background-color: #495057; /* Cambia colore di sfondo al passaggio del mouse */
+}
+.search-bar input:hover{
+    background-color: #000000; /* Cambia colore di sfondo al passaggio del mouse */
+    color: rgb(251, 251, 251);
+    transition: font-size 2s;
+}
+.search-bar button:hover{
+    background-color: #000000; /* Cambia colore di sfondo al passaggio del mouse */
+    color: rgb(251, 251, 251);
+    transition: font-size 2s;
 }
