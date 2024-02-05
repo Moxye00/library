@@ -1,0 +1,66 @@
+#books{
+    width: 150px;
+}
+.navbar-brand:hover{
+    animation: rotazione 2s linear; 
+}
+@keyframes rotazione {
+    from {
+        transform: rotate(0deg); /* rotazione iniziale */
+    }
+    to {
+        transform: rotate(360deg); /* rotazione finale */
+    }
+}
+
+.Home{
+    font-weight: bold;
+    padding: 10px 20px; 
+        text-align: center;
+        text-decoration: none; 
+        display: inline-block; 
+        cursor: pointer;
+        color: aliceblue;
+}
+.Home:hover{
+    font-size: 20px;
+}
+
+.User{
+    font-weight: bold;
+    padding: 10px 20px; 
+        text-align: center;
+        text-decoration: none; 
+        display: inline-block; 
+        cursor: pointer;
+        color: aliceblue;
+}
+.User:hover{
+    font-size: 20px;
+}
+
+.Login{
+    font-weight: bold;
+    padding: 10px 20px; 
+        text-align: center;
+        text-decoration: none; 
+        display: inline-block; 
+        cursor: pointer;
+        color: aliceblue; 
+}
+.Login:hover{
+    font-size: 20px;
+}
+
+.Books{
+    font-weight: bold;
+    padding: 10px 20px; 
+        text-align: center;
+        text-decoration: none; 
+        display: inline-block; 
+        cursor: pointer;
+        color: aliceblue;
+}
+.Books:hover{
+    font-size: 20px;
+}
