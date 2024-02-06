@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Author } from 'src/model/dtos/author';
 import { authorService } from 'src/services/author.service';
 
 @Component({
@@ -8,16 +9,14 @@ import { authorService } from 'src/services/author.service';
 })
 export class SearchBarComponent {
   searchQuery: string = '';
-  firstname: string = '';
-  lastname: string = '';
-  searchResults: any[] = [];
+  searchResults: Author[] = [];
 
   constructor(private authorService: authorService){}
 
   search() {
-    let search = this.searchQuery.split(" ");
-    this.authorService.getAuthorsByName(search[0], search[1]).subscribe((authors) => {
+    this.authorService.getAuthorsByName(this.searchQuery).subscribe((authors) => {
       this.searchResults = authors;
+      console.log(authors);
     });
   }
   

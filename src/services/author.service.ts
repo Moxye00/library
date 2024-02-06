@@ -6,23 +6,23 @@ import { Author } from "src/model/dtos/author";
   providedIn: 'root',
 })
 export class authorService{
-  private URL = 'http://localhost:8080/api/authors';
+  private URL = 'http://localhost:8080/api/authors/';
 
   constructor(private http: HttpClient){ }
 
   getAllAuthors(): Observable<Author[]>{
-    return this.http.get<Author[]>(`${this.URL}/`);
+    return this.http.get<Author[]>(`${this.URL}`);
   }
 
   getAuthorsDetails(authorId: number): Observable<Author>{
-    return this.http.get<Author>(`${this.URL}/${authorId}`);
+    return this.http.get<Author>(`${this.URL}${authorId}`);
   }
 
-  getAuthorsByName(firstname: string, lastname: string): Observable<any[]>{
-    const params = new HttpParams().set('firstname', firstname).set('lastname', lastname);
+  getAuthorsByName(part: string): Observable<Author[]>{
+    const params = new HttpParams().set('part', part);
 
-    let url = `${this.URL}/name`;
+    let url = `${this.URL}`;
     
-    return this.http.get<any[]>(url, {params});
+    return this.http.get<Author[]>(url, {params});
   }
 }
