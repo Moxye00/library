@@ -22,22 +22,20 @@
                     <div class="text-center">
                       <img src="https://cdn.discordapp.com/attachments/1171025956828352512/1203000829804552192/OIG2.jpeg?ex=65cf80d4&is=65bd0bd4&hm=aa82a1ac071689d1995b7a9b80499cb5872f087c96d9ed1b82ea1300cb928c80&"
                         style="width: 185px;" alt="logo">
-                      <h4 class="mt-1 mb-5 pb-1">We are The Lotus Team</h4>
+                      <h4 class="mt-1 mb-5 pb-1">We are The LotE Team</h4>
                     </div>
-                    <form>
+                    <form (ngSubmit)="login()">
                       <p>Please login to your account</p> 
                       <div class="form-outline mb-4">
-                        <input type="email" id="form2Example11" class="form-control"/>
-                        <label class="form-label" for="form2Example11">Username</label>
+                        <input type="email" id="email" class="form-control" [(ngModel)]="email" name = "email" required/>
+                        <label class="form-label" for="email">E-Mail</label>
                       </div>
                       <div class="form-outline mb-4">
-                        <input type="password" id="form2Example22" class="form-control"/>
-                        <label class="form-label" for="form2Example22">Password</label>
+                        <input type="password" id="password" class="form-control" [(ngModel)]="password" name = "password" required/>
+                        <label class="form-label" for="password">Password</label>
                       </div> 
                       <div class="text-center pt-1 mb-5 pb-1">
-                        <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="button">Log
-                          in</button>
-                        <a class="text-muted" href="#!">Forgot password?</a>
+                        <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Login</button>
                       </div>  
                       <div class="d-flex align-items-center justify-content-center pb-4">
                         <p class="mb-0 me-2">Don't have an account?</p>
