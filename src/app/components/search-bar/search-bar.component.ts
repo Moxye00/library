@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Author } from 'src/model/dtos/author';
 import { authorService } from 'src/services/author.service';
+import { Book } from 'src/model/dtos/book';
+import { bookService } from 'src/services/book.service';
 
 @Component({
   selector: 'app-search-bar',
@@ -9,17 +11,29 @@ import { authorService } from 'src/services/author.service';
 })
 export class SearchBarComponent {
   searchQuery: string = '';
-  searchResults: Author[] = [];
+  searchResultsAuthors: Author[] = [];
+  searchResultsBooks: Book[] = [];
+  
 
-  constructor(private authorService: authorService){}
+  constructor(private authorService: authorService, private bookService: bookService){}
 
-  search() {
+  searchAuthors() {
     this.authorService.getAuthorsByName(this.searchQuery).subscribe((authors) => {
-      this.searchResults = authors;
+      this.searchResultsAuthors = authors;
       console.log(authors);
     });
   }
-  
 
+  searchBooks() {
+    this.bookService.getBooksByTitle(this.searchQuery).subscribe((book) => {
+      this.searchResultsBooks = book;
+      console.log(book);
+    });
+  }
+  
+  search() {
+    this.searchAuthors();
+    this.searchBooks();
+  }
 }
 

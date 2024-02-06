@@ -9,12 +9,13 @@ import { BooksDetailComponent } from './components/books-detail/books-detail.com
 import { UserComponent } from './components/user/user.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthorDetailsComponent } from './components/author-details/author-details.component';
-import { AuthorComponent } from './author/author.component';
+import { AuthorComponent } from './components/author/author.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { FormsModule } from '@angular/forms';
-import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { authorService } from 'src/services/author.service';
 import { HttpClientModule } from '@angular/common/http';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 
@@ -30,6 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
     AuthorComponent,
     SearchBarComponent,
     NavbarComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

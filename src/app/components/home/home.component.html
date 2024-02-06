@@ -1,75 +1,70 @@
 <!--Carousel-->
-<div id="carouselExampleCaptions" class="carousel slide">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="https://t3.ftcdn.net/jpg/02/66/01/52/360_F_266015225_sIO1nQowwDbk8SxmW6VzKyC2a4rqrNca.jpg" class="d-block" width="1920" height="600" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>First slide label</h5>
-          <p>Some representative placeholder content for the first slide.</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="https://t3.ftcdn.net/jpg/03/23/91/56/360_F_323915666_UJLgte2pXGRzQLWgyWjVYzkqWuYHY6vt.jpg" class="d-block" width="1920" height="600" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Second slide label</h5>
-          <p>Some representative placeholder content for the second slide.</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="https://img.freepik.com/free-vector/library-interior-empty-room-reading-with-books-wooden-shelves_33099-1722.jpg?size=626&ext=jpg&ga=GA1.1.1448711260.1707091200&semt=ais" class="d-block" width="1920" height="600" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Third slide label</h5>
-          <p>Some representative placeholder content for the third slide.</p>
-        </div>
+<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://t3.ftcdn.net/jpg/02/66/01/52/360_F_266015225_sIO1nQowwDbk8SxmW6VzKyC2a4rqrNca.jpg" class="d-block w-100" height="650px" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
       </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+    <div class="carousel-item">
+      <img src="https://t3.ftcdn.net/jpg/03/23/91/56/360_F_323915666_UJLgte2pXGRzQLWgyWjVYzkqWuYHY6vt.jpg" class="d-block w-100" height="650px" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://img.freepik.com/free-vector/library-interior-empty-room-reading-with-books-wooden-shelves_33099-1722.jpg?size=626&ext=jpg&ga=GA1.1.1448711260.1707091200&semt=ais" class="d-block w-100" height="650px" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
   </div>
-  <script>
-    var myCarousel = new bootstrap.Carousel(document.getElementById('carouselExampleCaptions'), {
-      interval: 2000,
-      wrap: true
-    });
-  </script>
-  <!--Carousel-->
-  
-  <section id="client-holder" data-aos="fade-up">
-    <div class="container">
-      <div class="row">
-        <div class="inner-content">
-          <div class="logo-wrap">
-            <div class="grid">
-              <a href="#">
-                <img src="https://upload.wikimedia.org/wikipedia/it/6/60/Icona_di_Libri_macOS_Big_Sur.png" width="250" height="250" alt="client">
-              </a>
-              <a href="#">
-                <img src="https://cdn.icon-icons.com/icons2/2474/PNG/512/education_books_library_icon_149685.png" width="250" height="250" alt="client">
-              </a>
-              <a href="#">
-                <img src="https://c8.alamy.com/compit/2f3wk08/icona-vettoriale-libreria-scaffale-cartoon-con-libri-in-biblioteca-libreria-in-legno-con-spine-colorate-su-scaffali-isolati-su-sfondo-bianco-documentazione-a-2f3wk08.jpg" width="250" height="250" alt="client">
-              </a>
-              <a href="#">
-                <img src="https://c8.alamy.com/compit/pyhwp0/vector-cartoon-prenota-icona-libreria-in-stile-fumetto-il-concetto-di-istruzione-illustrazione-pittogramma-prenota-business-effetto-splash-concept-pyhwp0.jpg" width="250" height="250" alt="client">
-              </a>
-              <a href="#">
-                <img src="https://img.freepik.com/premium-vector/stack-books-icon-cartoon-book-pile-stacked-library-collection_543062-143.jpg" width="250" height="250" alt="client">
-              </a>
-            </div>
-          </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<!--/Carousel-->
+
+<!--search-bar-->
+<app-search-bar></app-search-bar>
+<!--/search-bar-->
+
+<div class="services pd">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-3">
+        <div class="square"><i class="fas fa-code"></i></div>
+        <div class="serv">
+          <h5>Fantasy</h5>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="serv">
+          <div class="square"><i class="fas fa-cogs"></i></div>
+          <h5>Adventure</h5>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="square"><i class="bi bi-snapchat"></i></div>
+        <div class="serv">
+          <h5>Horror</h5>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="square"><i class="fas fa-heart"></i></div>
+        <div class="serv">
+          <h5>Romance</h5>
         </div>
       </div>
     </div>
-  </section>
-  <app-search-bar></app-search-bar>
+  </div>
+</div>

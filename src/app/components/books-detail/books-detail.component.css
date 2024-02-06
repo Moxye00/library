@@ -1,0 +1,13 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.book-details {
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.form-container {
+    margin-top: 50px;
+}
