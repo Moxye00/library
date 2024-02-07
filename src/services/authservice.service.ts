@@ -2,8 +2,6 @@ import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable, catchError, tap, throwError } from "rxjs";
 import { AuthUser } from "src/model/dtos/auth-user";
-import { AuthReq } from "src/model/dtos/authreq";
-
 
 
 @Injectable({
@@ -31,10 +29,23 @@ export class AuthService{
 
     register(registrationData: any): Observable<AuthUser> {
         return this.http.post<AuthUser>(`${this.REGISTER_URL}`, registrationData)
-        .pipe(catchError(this.handleError),
-        tap(resData => {
-            this.handleAuthentication(resData);
+        .pipe(
+            catchError(this.handleError),
+            tap(resData => {
+                this.handleAuthentication(resData);
         })
+        );
+    }
+
+    private USER_DATA_URL = 'http://localhost:8080/api/users'
+
+    getUserData(): Observable<AuthUser> {
+        return this.http.get<AuthUser>(this.USER_DATA_URL)
+        .pipe(
+            catchError(this.handleError),
+            tap((userData: AuthUser) =>{
+                this.handleUserData(userData);
+            })
         );
     }
 
@@ -53,5 +64,10 @@ export class AuthService{
         return throwError(() => 
             errorMessage
         );
+    }
+
+    private handleUserData(userData : AuthUser): void{
+        this.userPublisher.next(userData);
+        localStorage.setItem('userData', JSON.stringify(userData));
     }
 }

@@ -7,6 +7,7 @@ export class AuthUser{
     public user: User,
     public expirationDate: Date,
     ){}
+    
     get token() {
         if (!this.expirationDate || new Date() > this.expirationDate) {
           return null;
