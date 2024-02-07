@@ -18,9 +18,10 @@ export class AuthService{
 
     login(credentials: {email: string, password: string }): Observable<AuthUser>{
         return this.http.post<AuthUser>(`${this.LOGIN_URL}`, credentials)
-        .pipe(catchError(this.handleError),
-        tap(resData => {
-            this.handleAuthentication(resData);
+        .pipe(
+            catchError(this.handleError),
+            tap(resData => {
+                this.handleAuthentication(resData);
         })
         );
     }
@@ -55,6 +56,7 @@ export class AuthService{
     }
 
     private handleAuthentication(resData : AuthUser){
+        debugger;
         this.userPublisher.next(resData);
         localStorage.setItem('userData', JSON.stringify(resData));
     }
@@ -70,4 +72,14 @@ export class AuthService{
         this.userPublisher.next(userData);
         localStorage.setItem('userData', JSON.stringify(userData));
     }
+
+    checkLogin(){
+        const data = localStorage.getItem('userData');
+        if(data) {
+            this.userPublisher.next(JSON.parse(data));
+            return this.userPublisher.value;
+        }
+        return null; 
+    }
+
 }
