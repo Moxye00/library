@@ -1,6 +1,7 @@
 import { HttpClient, HttpErrorResponse, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, catchError, tap, throwError } from "rxjs";
+import { LibraryItemDto } from "src/model/dtos/library-item";
 
 @Injectable({
     providedIn: 'root',
@@ -24,6 +25,12 @@ export class userService{
         let errorMessage = errorRes.message;
         return throwError(() => 
             errorMessage
+        );
+    }
+
+    getUserBooks(userId: number): Observable<LibraryItemDto[]>{
+        return this.http.get<LibraryItemDto[]>(`${this.URL}${userId}`).pipe(
+            catchError(this.handleError)
         );
     }
 

@@ -43,7 +43,8 @@ export class BooksComponent implements OnInit{
       }
       );
     } else {
-      console.error('user non è loggato');
+      console.error('user non loggato');
+      alert('user non loggato');
     }
   }
 

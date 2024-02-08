@@ -9,4 +9,5 @@ export interface Book {
     genre: string;
     author: string;
     feedback: string;
+    img: string;
 }
