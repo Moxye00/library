@@ -28,10 +28,10 @@ export class userService{
         );
     }
 
-    getUserBooks(userId: number): Observable<LibraryItemDto[]>{
-        return this.http.get<LibraryItemDto[]>(`${this.URL}${userId}`).pipe(
-            catchError(this.handleError)
-        );
-    }
+    // getUserBooks(userId: number): Observable<LibraryItemDto[]>{
+    //     return this.http.get<LibraryItemDto[]>(`${this.URL}${userId}`).pipe(
+    //         catchError(this.handleError)
+    //     );
+    // } 
 
 }
