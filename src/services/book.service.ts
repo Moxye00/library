@@ -9,7 +9,7 @@ import { Book } from "src/model/dtos/book";
 export class bookService{
   private URL = 'http://localhost:8080/api/books/';
 
-  constructor(private http: HttpClient){ }
+  constructor(private http: HttpClient) {}
 
   getAllBooks(): Observable<Book[]>{
     return this.http.get<Book[]>(`${this.URL}`);

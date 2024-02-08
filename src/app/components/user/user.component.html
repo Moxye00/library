@@ -1,9 +1,9 @@
+<!--profile-->
 <div class="card mb-4" *ngIf="userData">
     <div class="card-body text-center">
       <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
         class="rounded-circle img-fluid" style="width: 150px;">
-      <h5 class="my-3">Marco Suriano</h5>
-      <p class="text-muted mb-1">Full Stack Developer</p>
+      <h5 class="my-3">{{ userData.user.firstname }} {{ userData.user.lastname }}</h5>
       <p class="text-muted mb-4">{{ userData.user.email }}</p>
       <div class="d-flex justify-content-center mb-2">
         <button type="button" class="btn btn-primary">Edit</button>
@@ -11,5 +11,33 @@
       </div>
     </div>
 </div>
+<!--/profile-->
 
-
+<!--list books-->
+<div class="album py-5 bg-light">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12" id="collection-heading">
+              <span>List Books</span>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                  <img class="card-img-top" src="img/thumbnail.png" alt="Card image cap">
+                  <div class="card-body">
+                      <p class="card-text"></p>
+                      <p class="card-text"></p>
+                      <p class="card-text"></p>
+                      <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!--/list books-->

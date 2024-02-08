@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  firstname: string = '';
+  lastname: string = '';
   email: string = '';
   password: string = '';
   errorMessage: string = '';
@@ -26,6 +28,27 @@ export class LoginComponent {
       (error) => {
         console.error('Login Failed', error);
         this.errorMessage = 'Credenziali non valide. Riprova.';
+      }
+    );
+  }
+
+  register(): void {
+    const registrationData = {
+      firstname: this.firstname,
+      lastname: this.lastname,
+      email: this.email,
+      password: this.password,
+      role: 'USER' 
+    };
+
+    this.authService.register(registrationData).subscribe(
+      (response) => {
+        console.log('Registration Successful', response);
+        this.router.navigate(['/user'])
+      },
+      (error) => {
+        console.error('Registration Failed', error);
+        this.errorMessage = 'Errore durante la registrazione. Riprova.';
       }
     );
   }
