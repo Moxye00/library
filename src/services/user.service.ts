@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable, catchError, throwError } from "rxjs";
+import { Observable, catchError, tap, throwError } from "rxjs";
 
 @Injectable({
     providedIn: 'root',
@@ -11,16 +11,17 @@ export class userService{
     constructor(private http: HttpClient) {}
 
     assignBookToUser(userId: number, bookId: number): Observable<any>{
+        console.log(userId, bookId);
         const params = new HttpParams()
-            .set('userId', userId.toString())
-            .set('bookId', bookId.toString());
-        return this.http.post(this.URL,null,{params}).pipe(
+            .set('userId', userId)
+            .set('bookId', bookId);
+        return this.http.post(`${this.URL}`, null, {params: params, responseType: 'text'}).pipe(
             catchError(this.handleError)
-        )
+        );
     }
 
     private handleError(errorRes: HttpErrorResponse) {
-        let errorMessage = 'An unknown error occurred!';
+        let errorMessage = errorRes.message;
         return throwError(() => 
             errorMessage
         );

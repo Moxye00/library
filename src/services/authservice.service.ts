@@ -56,7 +56,6 @@ export class AuthService{
     }
 
     private handleAuthentication(resData : AuthUser){
-        debugger;
         this.userPublisher.next(resData);
         localStorage.setItem('userData', JSON.stringify(resData));
     }

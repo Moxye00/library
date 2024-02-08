@@ -6,17 +6,22 @@ import { Subscription } from 'rxjs';
   selector: 'app-navbar',
   templateUrl: 'navbar.component.html',
 })
-export class NavbarComponent implements OnDestroy {
+export class NavbarComponent {
   isLoggedIn: boolean = false;
   private userSubscription: Subscription | undefined;
 
   constructor(private authService: AuthService) {
-    this.userSubscription = this.authService.userPublisher.subscribe((user) => {
-      this.isLoggedIn = !!user;
-    });
+    this.checkLogin();
+    console.log(this.isLoggedIn);
   }
 
-  ngOnDestroy() {
-    this.userSubscription?.unsubscribe();
+  checkLogin(){
+    if(this.authService.checkLogin()) {
+      this.isLoggedIn = true;
+      return true;
+    }
+    this.isLoggedIn = false;
+    return false;
   }
+
 }

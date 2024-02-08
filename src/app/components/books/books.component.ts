@@ -31,16 +31,16 @@ export class BooksComponent implements OnInit{
   }
 
   assignBookToUser(bookId: number): void {
-    debugger;
     const userId = this.authService.checkLogin()?.user.id;
     if(userId){
-      this.userService.assignBookToUser(userId, bookId).subscribe(
-        () => {
+      this.userService.assignBookToUser(userId, bookId).subscribe( {
+        next: () => {
           console.log('Book added to library successfully');
         },
-        error => {
-          console.error('Error adding book to library:', error);
+        error: (error) => {
+          console.error('PIPPO:', error);
         }
+      }
       );
     } else {
       console.error('user non è loggato');
