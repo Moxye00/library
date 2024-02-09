@@ -4,6 +4,7 @@ import { AuthService } from 'src/services/authservice.service';
 import { Router } from '@angular/router';
 import { LibraryItemDto } from 'src/model/dtos/library-item';
 import { userService } from 'src/services/user.service';
+import { User } from 'src/model/dtos/user';
 
 @Component({
   selector: 'app-user',
@@ -13,12 +14,14 @@ import { userService } from 'src/services/user.service';
 export class UserComponent implements OnInit{
 
   userData: AuthUser | null = null;
+  user!: User;
   userBooks: LibraryItemDto[] = [];
 
   constructor(private authService: AuthService, private userService: userService, private router: Router ) {}
 
   ngOnInit(): void {
     this.userData = this.authService.checkLogin();
+    this.fetchAssignedBook(this.userData?.user.id);
   }
 
   logout() {
@@ -26,16 +29,16 @@ export class UserComponent implements OnInit{
     this.router.navigate(['/login'])
   }
 
-  fetchAssignedBook(userId: number): void {
+  fetchAssignedBook(userId: number | undefined): void {
     this.userService.getUserBooks(userId).subscribe({
-      next: (books) => {
-        this.userBooks = books;
-      },
-      error: (error) => {
-        console.error('errore ndel recupero dei libri', error);
-      }
+        next: (library) => {
+          this.userBooks = library;
+        },
+        error: (error) => {
+            console.error('Error fetching books', error);
+        }
     });
+}
 
-  }
 
 }

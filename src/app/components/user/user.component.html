@@ -1,42 +1,44 @@
-<!--profile-->
-<div class="card mb-4" *ngIf="userData">
-    <div class="card-body text-center">
-      <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
-        class="rounded-circle img-fluid" style="width: 150px;">
-      <h5 class="my-3">{{ userData.user.firstname }} {{ userData.user.lastname }}</h5>
-      <p class="text-muted mb-4">{{ userData.user.email }}</p>
-      <div class="d-flex justify-content-center mb-2">
-        <button type="button" class="btn btn-primary">Edit</button>
-        <button type="button" class="btn btn-outline-primary ms-1" (click)="logout()">Logout</button>
-      </div>
+<!--user-->
+<div class="container-xl px-4 mt-4">
+    <hr class="mt-0 mb-4">
+    <div class="row">
+        <!--profile-->
+        <div class="col-xl-4" *ngIf="userData && userData.user">
+            <div class="card mb-4 mb-xl-0">
+                <div class="card-header">Profile</div>
+                <div class="card-body text-center">
+                    <img class="img-account-profile rounded-circle mb-2" style="width: 150px;" src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar">
+                    <div class="small font-italic text-muted mb-4">{{ userData.user.firstname }} {{ userData.user.lastname }}</div>
+                    <div class="small font-italic text-muted mb-4">{{ userData.user.email }}</div>
+                    <button class="btn btn-primary" type="button">Edit</button>
+                    <button class="btn btn-primary" type="button" (click)="logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+        <!--/profile-->
+        <!--list books-->
+        <div class="col-xl-8">
+            <div class="card mb-4" *ngFor="let l of userBooks">
+                <div class="card-header">List Books</div>
+                <div class="card-body">
+                    <p class="card-text">{{ l.title }}</p>
+                    <p class="card-text">{{ l.genre }}</p> <!-- Add other fields as needed -->
+                    <p class="card-text">{{ l.editor }}</p>
+                    <p class="card-text">{{ l.publisher }}</p>
+                    <p class="card-text">{{ l.pages }} pages</p>
+                    <p class="card-text">Price: ${{ l.price }}</p>
+                    <p class="card-text">{{ l.description }}</p>
+                    <!-- Omitting user id, book id, and img fields -->
+                    
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/list books-->
     </div>
 </div>
-<!--/profile-->
-
-<!--list books-->
-<div class="album py-5 bg-light">
-  <div class="container">
-      <div class="row">
-          <div class="col-md-12" id="collection-heading">
-              <span>List Books</span>
-          </div>
-      </div>
-      <div class="row" *ngFor="let book of userBooks">
-          <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                  <img class="card-img-top" src="" alt="Card image cap">
-                  <div class="card-body">
-                      <p class="card-text">{{ book.title}}</p>
-                      <p class="card-text">{{ book.author}}</p>
-                      <div class="d-flex justify-content-between align-items-center">
-                          <div class="btn-group">
-                              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
-<!--/list books-->
+<!--/user-->

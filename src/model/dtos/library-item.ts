@@ -1,5 +1,12 @@
 export interface LibraryItemDto {
-    id: number;
+    userId: number;
+    bookId: number;
     title: string;
-    author: string;
+    genre: string;     
+    editor: string;    
+    publisher: string; 
+    pages: number;     
+    price: number;     
+    description: string; 
+    img: string;       
 }
