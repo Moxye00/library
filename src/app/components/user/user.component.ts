@@ -33,12 +33,23 @@ export class UserComponent implements OnInit{
     this.userService.getUserBooks(userId).subscribe({
         next: (library) => {
           this.userBooks = library;
+          console.log(library);
         },
         error: (error) => {
             console.error('Error fetching books', error);
         }
     });
-}
+  }
 
+  deleteAssignedBook(id: number){
+    this.userService.deleteBookAssignment(id).subscribe({
+      next: () => {
+        this.fetchAssignedBook(this.userData?.user.id);
+      },
+      error: (error) => {
+        console.error('impossibile assolutamente cancellare libro', error);
+      }
+    });
+  }
 
 }

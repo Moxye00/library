@@ -16,8 +16,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { authorService } from 'src/services/author.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './components/footer/footer.component';
-import { RegisterComponent } from './components/register/register.component';
-
 
 
 @NgModule({
@@ -33,7 +31,6 @@ import { RegisterComponent } from './components/register/register.component';
     SearchBarComponent,
     NavbarComponent,
     FooterComponent,
-    RegisterComponent,
   ],
   imports: [
     BrowserModule,

@@ -17,24 +17,53 @@
             <div class="col-md-12" id="collection-heading">
                 <span>List Books</span>
             </div>
-        </div>
-        <div class="row" *ngFor="let b of allBooks">
-            <div class="col-md-4">
-                <div class="card mb-4 box-shadow">
-                    <img class="card-img-top" [src]="b.img" alt="Card image cap">
-                    <div class="card-body">
-                        <p class="card-text">{{ b.title }}</p>
-                        <p class="card-text">{{ b.author }}</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary" [routerLink]="['/books', b.id!]" routerLinkActive="active">View</button>
-                                <button type="button" class="btn btn-sm btn-outline-secondary" (click)="assignBookToUser(b.id)">Add</button>
+            <!--search-->
+            <div class="container mb-3">
+                <br/>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-10 col-lg-8">
+                        <form class="card card-sm">
+                            <div class="card-body row no-gutters align-items-center">
+                                <div class="col-auto">
+                                    <i class="fas fa-search h4 text-body"></i>
+                                </div>
+                                <div class="col">
+                                    <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search">
+                                </div>
+                                <div class="col-auto">
+                                    <button class="btn btn-lg btn-success" type="submit">Search</button>
+                                </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
+            <!--/search-->
         </div>
+        <!--message-->
+        <div *ngIf="showSuccessMessage" class="alert alert-success" role="alert" style="display: block;">
+            Book added to library successfully!
+        </div>
+        <!--/message-->
+        <!--books-->
+        <div class="container" *ngFor="let b of allBooks">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="carbon-example flex-wrapper">
+                        <img [src]="b.img" alt="image">
+                        <div class="inner-wrapper">
+                          <p>{{ b.title }}</p>
+                          <p>{{ b.author }}</p>
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary" [routerLink]="['/books', b.id!]" routerLinkActive="active">View</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" (click)="assignBookToUser(b.id)">Add</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>   
+            </div>
+        </div>
+        <!--/books-->
     </div>
 </div>
 <!--/list books-->
