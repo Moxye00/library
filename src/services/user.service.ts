@@ -1,13 +1,16 @@
 import { HttpClient, HttpErrorResponse, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, catchError, tap, throwError } from "rxjs";
+import { AuthUser } from "src/model/dtos/auth-user";
 import { LibraryItemDto } from "src/model/dtos/library-item";
+import { User } from "src/model/dtos/user";
 
 @Injectable({
     providedIn: 'root',
 })
 export class userService{
     private URL = 'http://localhost:8080/api/library/';
+    private USER_URL= 'http://localhost:8080/api/users/';
 
     constructor(private http: HttpClient) {}
 
@@ -28,10 +31,7 @@ export class userService{
         );
     }
 
-    // getUserBooks(userId: number): Observable<LibraryItemDto[]>{
-    //     return this.http.get<LibraryItemDto[]>(`${this.URL}${userId}`).pipe(
-    //         catchError(this.handleError)
-    //     );
-    // } 
-
+    getUserBooks(userId: number | undefined): Observable<LibraryItemDto[]>{
+         return this.http.get<LibraryItemDto[]>(`${this.URL}${userId}`);
+    }
 }
