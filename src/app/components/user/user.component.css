@@ -53,4 +53,19 @@ body{
 .home-slider h1 {
     color: #fff; 
     font-size: 2.5em; 
-}    
+}
+
+.btn-hover-blue:hover {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+ 
+.custom-card {
+    max-height: 300px; 
+
+}
+
+.custom-card img {
+    margin-left: 20px; 
+}

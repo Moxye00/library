@@ -1,7 +1,7 @@
 <!--search bar-->
 <div class="container-fluid search-bar position-relative" style="top: -50%; transform: translateY(-50%);">
   <div class="container">
-      <div class="position-relative rounded-pill w-100 mx-auto p-5" style="background: rgba(19, 53, 123, 0.8);">
+      <div class="position-relative rounded-pill w-75 mx-auto p-4" style="background: rgba(19, 53, 123, 0.8);">
           <input [(ngModel)]="searchQuery" placeholder="Cerca autori" class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Es: Library">
           <button (click)="search()" type="button" class="btn btn-primary rounded-pill py-2 px-4 position-absolute me-2" style="top: 50%; right: 46px; transform: translateY(-50%);">Search</button>
       </div>
@@ -10,37 +10,45 @@
 <!--/search bar-->
 
 <!--search author-->
-<div *ngIf="searchResultsAuthors.length > 0" class="container mt-4">
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">First Name</th>
-        <th scope="col">Last Name</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let author of searchResultsAuthors">
-        <td>{{ author.firstName }}</td>
-        <td>{{ author.lastName }}</td>
-      </tr>
-    </tbody>
-  </table>
+<div *ngIf="showResults && searchResultsAuthors.length > 0" class="container mt-4">
+  <div class="table-responsive">
+    <button (click)="closeResults()" class="btn btn-primary mt-3">Close results</button>
+    <table class="table table-striped table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let author of searchResultsAuthors">
+          <td>{{ author.firstName }}</td>
+          <td>{{ author.lastName }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 <!--/search author-->
 
 <!--search book-->
-<div *ngIf="searchResultsBooks.length > 0" class="container mt-4">
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Title</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let book of searchResultsBooks">
-        <td>{{ book.title }}</td>
-      </tr>
-    </tbody>
-  </table>
+<div *ngIf=" showResults && searchResultsBooks.length > 0" class="container mt-4">
+  <div class="table-responsive">
+    <button (click)="closeResults()" class="btn btn-primary mt-3">Close results</button>
+    <table class="table table-striped table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Author</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of searchResultsBooks">
+          <td>{{ book.title }}</td>
+          <td>{{ book.author }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 <!--/search book-->

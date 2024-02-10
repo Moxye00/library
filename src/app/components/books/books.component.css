@@ -64,6 +64,12 @@ body{margin-top:20px;}
   font-weight: 500;
 }
 
+.btn-hover-blue:hover {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
 .flex-wrapper {
   display: -webkit-box;
   display: -webkit-flex;
@@ -81,6 +87,7 @@ body{margin-top:20px;}
   -moz-justify-content: space-between;
   justify-content: space-between;
 }
+
 @media screen and (max-width: 991px) {
   .flex-wrapper.two-col {
     display: block;
@@ -95,6 +102,7 @@ body{margin-top:20px;}
 .flex-wrapper.two-col > *:first-of-type {
   padding-right: 130px;
 }
+
 @media screen and (max-width: 991px) {
 
   .flex-wrapper.two-col > * {
@@ -110,6 +118,7 @@ body{margin-top:20px;}
   order: 2;
   padding-right: 0;
 }
+
 @media screen and (min-width: 992px) {
   .flex-wrapper.two-col.reversed > *:first-of-type {
     padding-left: 130px;
@@ -125,6 +134,7 @@ body{margin-top:20px;}
   align-items: flex-start;
   margin-top: 40px;
 }
+
 @media screen and (max-width: 767px) {
   .flex-wrapper.three-col {
     -webkit-flex-wrap: wrap;
@@ -133,14 +143,17 @@ body{margin-top:20px;}
     flex-wrap: wrap;
   }
 }
+
 .flex-wrapper.three-col > * {
   width: 33.3%;
 }
+
 @media screen and (max-width: 767px) {
   .flex-wrapper.three-col > * {
     width: 100%;
   }
 }
+
 @media screen and (min-width: 768px) {
   .flex-wrapper.three-col li {
     padding-left: 20px;
@@ -179,4 +192,39 @@ body{margin-top:20px;}
 .flex-wrapper.three-col .flex-wrapper .icon {
   top: 0;
   transform: none;
+}
+
+.wrapper {
+  padding-bottom: 30px;
+}
+
+.wrapper .divider {
+  position: relative;
+  margin-top: 30px;
+  height: 1px;
+}
+
+.wrapper .div-transparent:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 5%;
+  right: 5%;
+  width: 90%;
+  height: 1px;
+  background-image: linear-gradient(to right, transparent, rgb(48, 49, 51), transparent);
+}
+
+.wrapper .div-dot:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -9px;
+  left: calc(50% - 9px);
+  width: 18px;
+  height: 18px;
+  background-color: goldenrod;
+  border: 1px solid rgb(48, 49, 51);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 2px white, 0 0 0 4px white;
 }

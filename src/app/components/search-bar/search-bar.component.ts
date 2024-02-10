@@ -13,13 +13,14 @@ export class SearchBarComponent {
   searchQuery: string = '';
   searchResultsAuthors: Author[] = [];
   searchResultsBooks: Book[] = [];
-  
+  showResults: boolean = false;
 
   constructor(private authorService: authorService, private bookService: bookService){}
 
   searchAuthors() {
     this.authorService.getAuthorsByName(this.searchQuery).subscribe((authors) => {
       this.searchResultsAuthors = authors;
+      this.showResults = true;
       console.log(authors);
     });
   }
@@ -27,6 +28,7 @@ export class SearchBarComponent {
   searchBooks() {
     this.bookService.getBooksByTitle(this.searchQuery).subscribe((book) => {
       this.searchResultsBooks = book;
+      this.showResults = true;
       console.log(book);
     });
   }
@@ -35,5 +37,10 @@ export class SearchBarComponent {
     this.searchAuthors();
     this.searchBooks();
   }
+  
+  closeResults() {
+    this.showResults = false;
+  }
+
 }
 
