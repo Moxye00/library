@@ -12,6 +12,9 @@ import { userService } from 'src/services/user.service';
 export class BooksComponent implements OnInit{
   allBooks: Book[] = [];
   showSuccessMessage: boolean = false;
+  searchQuery: string = '';
+  searchResultsBooks: Book[] = [];
+  showResults: boolean = false;
 
   constructor(private bookService: bookService, private authService: AuthService, private userService: userService){}
 
@@ -50,6 +53,22 @@ export class BooksComponent implements OnInit{
       console.error('user non loggato');
       alert('user non loggato');
     }
+  }
+
+  searchBooks() {
+    this.bookService.getBooksByTitle(this.searchQuery).subscribe((book) => {
+      this.searchResultsBooks = book;
+      this.showResults = true;
+      console.log(book);
+    });
+  }
+  
+  search() {
+    this.searchBooks();
+  }
+
+  closeResults() {
+    this.showResults = false;
   }
   
 }
