@@ -52,4 +52,8 @@ export class UserComponent implements OnInit{
     });
   }
 
+  viewBookDetails(bookId: number) {
+    this.router.navigate(['/books', bookId]);
+  }
+
 }

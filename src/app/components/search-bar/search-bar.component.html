@@ -1,8 +1,8 @@
 <!--search bar-->
-<div class="container-fluid search-bar position-relative" style="top: -50%; transform: translateY(-50%);">
+<div class="container-fluid search-bar position-relative" style="top: -50%; transform: translateY(-100%); margin-bottom: -80px;">
   <div class="container">
       <div class="position-relative rounded-pill w-75 mx-auto p-4" style="background: rgba(19, 53, 123, 0.8);">
-          <input [(ngModel)]="searchQuery" placeholder="Cerca autori" class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Es: Harry Potter">
+          <input [(ngModel)]="searchQuery" placeholder="Cerca autori" class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Es: Harry Potter" (keyup.enter)="search()">
           <button (click)="search()" type="button" class="btn btn-primary rounded-pill py-2 px-4 position-absolute me-2" style="top: 50%; right: 46px; transform: translateY(-50%);">Search</button>
       </div>
   </div>
@@ -13,7 +13,7 @@
 <div *ngIf="showResults && searchResultsAuthors.length > 0" class="container mt-4">
   <div class="table-responsive">
     <button (click)="closeResults()" class="btn btn-primary mt-3" style="margin-bottom: 10px;">Close results</button>
-    <table class="table table-striped table-hover">
+    <table class="table table-striped table-hover" style="margin-bottom: 50px;">
       <thead class="thead-dark">
         <tr>
           <th scope="col">First Name</th>
@@ -28,27 +28,36 @@
       </tbody>
     </table>
   </div>
+  <div class="wrapper">
+    <div class="divider div-transparent div-dot"></div>
+  </div>
 </div>
 <!--/search author-->
 
 <!--search book-->
-<div *ngIf=" showResults && searchResultsBooks.length > 0" class="container mt-4">
-  <div class="table-responsive">
-    <button (click)="closeResults()" class="btn btn-primary mt-3">Close results</button>
-    <table class="table table-striped table-hover">
-      <thead class="thead-dark">
-        <tr>
-          <th scope="col">Title</th>
-          <th scope="col">Author</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let book of searchResultsBooks">
-          <td>{{ book.title }}</td>
-          <td>{{ book.author }}</td>
-        </tr>
-      </tbody>
-    </table>
+<div class="container" *ngIf="showResults && searchResultsBooks.length > 0">
+  <button (click)="closeResults()" class="btn btn-primary mt-3" style="margin-bottom: 10px;">Close results</button>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let book of searchResultsBooks">
+      <div class="carbon-example flex-wrapper">
+        <img [src]="book.img" alt="image">
+        <div class="d-flex">
+          <div class="vr" style="height: 185px; border-right: 1px solid black;"></div>
+        </div>
+        <div class="inner-wrapper text-center" style="color: black;">
+          <p>{{ book.title }}</p>
+          <div class="wrapper">
+            <div class="divider div-transparent div-dot"></div>
+          </div>
+          <div class="btn-group">
+            <button type="button" class="btn btn-sm btn-outline-secondary btn-hover-blue" [routerLink]="['/books', book.id!]" routerLinkActive="active">View</button>
+          </div>
+        </div>
+      </div>
+    </div>   
+  </div>
+  <div class="wrapper">
+    <div class="divider div-transparent div-dot"></div>
   </div>
 </div>
 <!--/search book-->

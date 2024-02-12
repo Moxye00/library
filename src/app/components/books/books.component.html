@@ -13,58 +13,9 @@
 <!--list books-->
 <div class="album py-5">
     <div class="container">
-        <div class="row">
-            <!--search-->
-            <div class="container mb-3" >
-                <br/>
-                <div class="row justify-content-center">
-                    <div class="col-12 col-md-10 col-lg-8">
-                        <form class="card card-sm">
-                            <div class="card-body row no-gutters align-items-center">
-                                <div class="col-auto">
-                                    <i class="fas fa-search h4 text-body"></i>
-                                </div>
-                                <div class="col">
-                                    <input [(ngModel)]="searchQuery" placeholder="Cerca libri" class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search">
-                                </div>
-                                <div class="col-auto">
-                                    <select class="form-control selectpicker">
-                                        <option>Fantasy</option>
-                                        <option>Adventure</option>
-                                        <option>Romance</option>
-                                    </select>
-                                </div>                                  
-                                <div class="col-auto">
-                                    <button (click)="search()" class="btn btn-primary py-1.5 px-4" type="submit">Search</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>           
-            <!--/search-->
-            <!--search book-->
-            <div *ngIf=" showResults && searchResultsBooks.length > 0" class="container mt-4">
-                <div class="table-responsive">
-                <button (click)="closeResults()" class="btn btn-primary mt-3" style="margin-bottom: 10px;">Close results</button>
-                <table class="table table-striped table-hover">
-                    <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">Title</th>
-                        <th scope="col">Author</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr *ngFor="let book of searchResultsBooks">
-                        <td>{{ book.title }}</td>
-                        <td>{{ book.author }}</td>
-                    </tr>
-                    </tbody>
-                </table>
-                </div>
-            </div>
-            <!--/search book-->
-        </div>
+        <!--search-bar-->
+        <app-search-bar></app-search-bar>
+        <!--/search-bar-->
         <!--message-->
         <div *ngIf="showSuccessMessage" class="alert alert-success" role="alert" style="display: block;">
             Book added to library successfully!
@@ -81,7 +32,7 @@
                             </div>
                         <div class="inner-wrapper text-center" style="color: black;">
                             <p>{{ b.title }}</p>
-                            <p>{{ b.author }}</p>
+                            <p>{{ b.genre }}</p>
                             <div class="wrapper">
                                 <div class="divider div-transparent div-dot"></div>
                             </div>
