@@ -14,9 +14,6 @@ export class BooksComponent implements OnInit{
   showSuccessMessage: boolean = false;
   showErrorMessage: boolean = false;
   hideBookList: boolean=false;
-  currentPage: number=1;
-  pageSize: number=12;
-  pagedBooks: Book[] = [];
 
   constructor(private bookService: bookService, private authService: AuthService, private userService: userService){}
 
@@ -27,9 +24,8 @@ export class BooksComponent implements OnInit{
   fetchAllBooks() {
     this.bookService.getAllBooks().subscribe({
       next: b => {
-          this.pagedBooks = b;
+          this.allBooks = b;
           console.log(this.allBooks);
-          this.setPage(1);
       },
       error: (error) => {
           console.error('Errore nel recupero dei libri:', error);
@@ -60,18 +56,6 @@ export class BooksComponent implements OnInit{
       console.error('Unauthenticated user.');
       alert('Please log in to add books to your list.');
     }
-  }
-  
-  pageChanged(page:number): void {
-    this.setPage(page);
-    console.log(this.currentPage);
-  }
-
-  setPage(page:number): void {
-    const startIndex = (page - 1) * this.pageSize;
-    const endIndex = startIndex + this.pageSize;
-    this.pagedBooks = this.allBooks.slice(startIndex, endIndex);
-    this.currentPage = page;
   }
 
 }
