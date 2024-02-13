@@ -1,4 +1,5 @@
 import { Author } from "./author";
+import { Feedback } from "./feedback";
 import { Genre } from "./genre";
 
 export interface Book {
@@ -13,4 +14,5 @@ export interface Book {
     price: number;
     description: string;
     img: string;
+    feedback: Feedback;
   }

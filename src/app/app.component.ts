@@ -8,11 +8,5 @@ import { AuthService } from 'src/services/authservice.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
-  constructor(private authService: AuthService, private router: Router) {
-    if (this.authService.checkLogin()) {
-      this.router.navigate(['/user']);
-  }
-}
   title = 'library';
 }
