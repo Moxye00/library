@@ -35,4 +35,15 @@ export class bookService{
     return this.http.get<Genre[]>(`${this.genreURL}`);
   }
 
+  getBooksByTitleAndGenre(title: string, genreId: number): Observable<Book[]> {
+    const params = new HttpParams().set('title', title).set('genreId', genreId.toString());
+    let url = `${this.URL}`;
+    return this.http.get<Book[]>(url, { params });
+  }
+
+  getRandomBooksByGenre(genreId: number, limit: number): Observable<Book[]> {
+    const params = new HttpParams().set('genreId', genreId).set('limit', limit.toString());
+    return this.http.get<Book[]>(`${this.URL}four-books`,{params});
+  }
+
 }

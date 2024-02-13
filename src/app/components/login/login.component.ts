@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent{
   firstname: string = '';
   lastname: string = '';
   email: string = '';
@@ -15,11 +15,8 @@ export class LoginComponent implements OnInit {
   errorMessage: string = '';
 
   constructor(private authService: AuthService, private router: Router) {}
-  ngOnInit(): void {
-    if(this.authService.checkLogin()){
-      this.router.navigate(['/user']);
-    }
-  }
+  
+  
 
   login(): void {
 

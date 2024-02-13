@@ -5,11 +5,11 @@ import { BooksComponent } from './components/books/books.component';
 import { LoginComponent } from './components/login/login.component';
 import { UserComponent } from './components/user/user.component';
 import { BooksDetailComponent } from './components/books-detail/books-detail.component';
-import { AuthGuard } from './auth.guard';
+
 const routes: Routes = [
   { path: '', component:HomeComponent},
   { path: 'books', component:BooksComponent},
-  { path: 'login', component:LoginComponent, canActivate:[AuthGuard]},
+  { path: 'login', component:LoginComponent},
   { path: 'user', component:UserComponent},
   { path: 'books/:booksId', component:BooksDetailComponent},
 ];

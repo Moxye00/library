@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Book } from 'src/model/dtos/book';
+import { Genre } from 'src/model/dtos/genre';
 import { AuthService } from 'src/services/authservice.service';
 import { bookService } from 'src/services/book.service';
 import { userService } from 'src/services/user.service';
@@ -15,6 +16,7 @@ export class BooksDetailComponent implements OnInit{
   bookDetails!: Book;
   showSuccessMessage: boolean = false;
   showErrorMessage: boolean = false;
+  books: Book[] = [];
 
 constructor(private bookService: bookService, private router: Router, private activatedRoute: ActivatedRoute, 
             private authService: AuthService, private userService: userService) {}
@@ -59,6 +61,6 @@ constructor(private bookService: bookService, private router: Router, private ac
       console.error('Unauthenticated user.');
       alert('Please log in to add books to your list.');
     }
-  }
-  
+  } 
+
 }
