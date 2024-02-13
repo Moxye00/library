@@ -17,6 +17,8 @@ import { authorService } from 'src/services/author.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './components/footer/footer.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { RouterModule } from '@angular/router';
+import { AuthGuard } from './auth.guard';
 
 
 @NgModule({

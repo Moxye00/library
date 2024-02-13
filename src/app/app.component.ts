@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/services/authservice.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  constructor(private authService: AuthService, private router: Router) {
+    if (this.authService.checkLogin()) {
+      this.router.navigate(['/user']);
+  }
+}
   title = 'library';
 }

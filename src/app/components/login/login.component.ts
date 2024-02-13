@@ -48,7 +48,11 @@ export class LoginComponent {
       },
       (error) => {
         console.error('Registration Failed', error);
-        this.errorMessage = 'Errore durante la registrazione. Riprova.';
+        if (error.status === 400 && error.error === "L'indirizzo email è già in uso"){
+          this.errorMessage = 'L\'indirizzo email è già in suo. Si prega di utilizzare un altro indirizzo email.';
+        } else {
+          this.errorMessage = 'Errore durante la registrazione. Riprova.';
+        }
       }
     );
   }
