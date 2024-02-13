@@ -11,6 +11,9 @@ import { userService } from 'src/services/user.service';
 })
 export class BooksComponent implements OnInit{
   allBooks: Book[] = [];
+  showSuccessMessage: boolean = false;
+  showErrorMessage: boolean = false;
+  hideBookList: boolean=false;
 
   constructor(private bookService: bookService, private authService: AuthService, private userService: userService){}
 
@@ -36,18 +39,23 @@ export class BooksComponent implements OnInit{
       this.userService.assignBookToUser(userId, bookId).subscribe( {
         next: () => {
           console.log('Book added to library successfully');
-        },
+          this.showSuccessMessage = true;
+          setTimeout(() => {
+            this.showSuccessMessage = false;
+          }, 5000);
+        }, 
         error: (error) => {
-          console.error('PIPPO:', error);
+          console.error('Book not added to library', error);
+          this.showErrorMessage = true;
+          setTimeout(() => {
+            this.showErrorMessage = false;
+          }, 5000);
         }
-      }
-      );
+      });
     } else {
-      console.error('user non loggato');
-      alert('user non loggato');
+      console.error('Unauthenticated user.');
+      alert('Please log in to add books to your list.');
     }
   }
-
-
-    
+  
 }

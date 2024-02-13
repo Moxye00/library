@@ -9,9 +9,9 @@ export class AuthUser{
     ){}
     
     get token() {
-        if (!this.expirationDate || new Date() > this.expirationDate) {
-          return null;
-        }
-        return this.accessToken;
+      if (!this.expirationDate || new Date() > this.expirationDate) {
+        return null;
       }
+      return this.accessToken;
+    }
 }

@@ -21,3 +21,210 @@
     color: #fff; 
     font-size: 2.5em; 
 }
+
+body{margin-top:20px;}
+
+.carbon-example {
+  padding: 8px;
+  background-color: #fff;
+  width: 295px;
+  box-sizing: border-box;
+  border-radius: 6px;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  -webkit-align-items: flex-start;
+  -moz-align-items: flex-start;
+  align-items: flex-start;
+  position: relative;
+  z-index: 5;
+  box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.1);
+  margin-top:20px;
+}
+
+.carbon-example img {
+  margin-right: 9px;
+  max-width: 125px;
+}
+
+.carbon-example .inner-wrapper {
+  text-align: left;
+}
+
+.carbon-example .inner-wrapper p {
+  font-size: 12px;
+  line-height: 1.33;
+  margin: 8px 0;
+}
+
+.carbon-example .inner-wrapper p.fine-print {
+  font-size: 8px;
+  color: #C5CDD0;
+  line-height: 1.25;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.btn-hover-blue:hover {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.flex-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 991px) {
+  .flex-wrapper.two-col {
+    display: block;
+    text-align: center;
+  }
+}
+
+.flex-wrapper.two-col > * {
+  width: 50%;
+}
+
+.flex-wrapper.two-col > *:first-of-type {
+  padding-right: 130px;
+}
+
+@media screen and (max-width: 991px) {
+
+  .flex-wrapper.two-col > * {
+    width: 100%;
+  }
+
+  .flex-wrapper.two-col > *:first-of-type {
+    padding-right: 0;
+  }
+}
+
+.flex-wrapper.two-col.reversed > *:first-of-type {
+  order: 2;
+  padding-right: 0;
+}
+
+@media screen and (min-width: 992px) {
+  .flex-wrapper.two-col.reversed > *:first-of-type {
+    padding-left: 130px;
+  }
+}
+
+.flex-wrapper.three-col {
+  text-align: left;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  -webkit-align-items: flex-start;
+  -moz-align-items: flex-start;
+  align-items: flex-start;
+  margin-top: 40px;
+}
+
+@media screen and (max-width: 767px) {
+  .flex-wrapper.three-col {
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+}
+
+.flex-wrapper.three-col > * {
+  width: 33.3%;
+}
+
+@media screen and (max-width: 767px) {
+  .flex-wrapper.three-col > * {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .flex-wrapper.three-col li {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .flex-wrapper.three-col li:first-child {
+    padding-left: 0;
+  }
+  .flex-wrapper.three-col li:last-child {
+    padding-right: 0;
+  }
+}
+
+.flex-wrapper.three-col .flex-wrapper {
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  -webkit-align-items: flex-start;
+  -moz-align-items: flex-start;
+  align-items: flex-start;
+  margin-top: 0;
+}
+@media screen and (max-width: 767px) {
+  .flex-wrapper.three-col .flex-wrapper {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    justify-content: center;
+  }
+
+  .flex-wrapper.three-col .flex-wrapper:not(:first-of-type) {
+    margin-top: 40px;
+  }
+}
+
+.flex-wrapper.three-col .flex-wrapper .icon {
+  top: 0;
+  transform: none;
+}
+
+.wrapper {
+  padding-bottom: 30px;
+}
+
+.wrapper .divider {
+  position: relative;
+  margin-top: 30px;
+  height: 1px;
+}
+
+.wrapper .div-transparent:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 5%;
+  right: 5%;
+  width: 90%;
+  height: 1px;
+  background-image: linear-gradient(to right, transparent, rgb(48, 49, 51), transparent);
+}
+
+.wrapper .div-dot:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -9px;
+  left: calc(50% - 9px);
+  width: 18px;
+  height: 18px;
+  background-color: goldenrod;
+  border: 1px solid rgb(48, 49, 51);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 2px white, 0 0 0 4px white;
+}

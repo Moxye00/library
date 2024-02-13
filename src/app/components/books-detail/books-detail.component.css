@@ -1,10 +1,34 @@
-body{
-    background-color: #edf1f5;
-    margin-top:20px;
+.home-slider {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    text-align: center;
+}
+
+.home-slider .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; 
+}
+
+.home-slider .slider-text {
+    width: 100%; 
+}
+
+.home-slider h1 {
+    color: #fff; 
+    font-size: 2.5em; 
+}
+
+.container {
+    margin-top: 30px;
 }
 .card {
     margin-bottom: 30px;
 }
+
 .card {
     position: relative;
     display: flex;
@@ -16,15 +40,53 @@ body{
     border: 0 solid transparent;
     border-radius: 0;
 }
+
 .card .card-subtitle {
     font-weight: 300;
     margin-bottom: 10px;
     color: #8898aa;
 }
+
 .table-product.table-striped tbody tr:nth-of-type(odd) {
     background-color: #f3f8fa!important
 }
+
 .table-product td{
     border-top: 0px solid #dee2e6 !important;
-    color: #728299!important;
+    color: black;
+}
+
+.wrapper {
+    padding-bottom: 30px;
+}
+  
+.wrapper .divider {
+    position: relative;
+    margin-top: 30px;
+    height: 1px;
+}
+  
+.wrapper .div-transparent:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 5%;
+    right: 5%;
+    width: 90%;
+    height: 1px;
+    background-image: linear-gradient(to right, transparent, rgb(48, 49, 51), transparent);
+}
+  
+.wrapper .div-dot:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: -9px;
+    left: calc(50% - 9px);
+    width: 18px;
+    height: 18px;
+    background-color: goldenrod;
+    border: 1px solid rgb(48, 49, 51);
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 2px white, 0 0 0 4px white;
 }

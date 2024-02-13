@@ -1,5 +1,5 @@
 <!--header-->
-<section class="home-slider owl-carousel img" style="background-image: url(https://t3.ftcdn.net/jpg/02/66/01/52/360_F_266015225_sIO1nQowwDbk8SxmW6VzKyC2a4rqrNca.jpg); display: block; height: 350px;">
+<section class="home-slider owl-carousel img" style="background-image: url(assets/img/he.jpeg); display: block; height: 350px;">
     <div class="container">
         <div class="row slider-text justify-content-center align-items-center">
             <div class="col-md-7 col-sm-12 text-center ftco-animate">
@@ -11,30 +11,47 @@
 <!--/header-->
 
 <!--list books-->
-<div class="album py-5 bg-light">
+<div class="album py-5">
     <div class="container">
-        <div class="row">
-            <div class="col-md-12" id="collection-heading">
-                <span>List Books</span>
-            </div>
+        <!--search-bar-->
+        <app-search-bar></app-search-bar>
+        <!--/search-bar-->
+        <!--message-->
+        <div *ngIf="showSuccessMessage" class="alert alert-success" role="alert" style="display: block;">
+            Book added to library successfully!
         </div>
-        <div class="row" *ngFor="let b of allBooks">
-            <div class="col-md-4">
-                <div class="card mb-4 box-shadow">
-                    <img class="card-img-top" [src]="b.img" alt="Card image cap">
-                    <div class="card-body">
-                        <p class="card-text">{{ b.title }}</p>
-                        <p class="card-text">{{ b.author }}</p>
-                        <div class="d-flex justify-content-between align-items-center">
+        <div *ngIf="showErrorMessage" class="alert alert-success" role="alert" style="display: block;">
+            Book already present in the library.
+        </div>                    
+        <!--/message-->
+        <!--books-->
+        <div class="container">
+            <div class="container" *ngIf="!hideBookList">
+            <div class="row">
+                <div class="col-md-4" *ngFor="let b of allBooks">
+                    <div class="carbon-example flex-wrapper" *ngFor="let a of b.authors">
+                        <img [src]="b.img" alt="image">
+                            <div class="d-flex">
+                                <div class="vr" style="height: 185px; border-right: 1px solid black;"></div>
+                            </div>
+                        <div class="inner-wrapper text-center" style="color: black;">
+                            <p>{{ b.title }}</p>
+                            <p class="text-muted d-block mb-2 small">{{ a.firstName }} {{ a.lastName }}</p>
+                            <p class="text-muted d-block mb-2 small">{{ b.genre.genre }}</p>
+                            <div class="wrapper">
+                                <div class="divider div-transparent div-dot"></div>
+                            </div>
                             <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary" [routerLink]="['/books', b.id!]" routerLinkActive="active">View</button>
-                                <button type="button" class="btn btn-sm btn-outline-secondary" (click)="assignBookToUser(b.id)">Add</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary btn-hover-blue" [routerLink]="['/books', b.id!]" routerLinkActive="active">View</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary btn-hover-blue" (click)="assignBookToUser(b.id)">Add</button>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>   
+            </div>
             </div>
         </div>
+        <!--/books-->
     </div>
 </div>
 <!--/list books-->

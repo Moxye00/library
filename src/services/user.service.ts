@@ -34,4 +34,8 @@ export class userService{
     getUserBooks(userId: number | undefined): Observable<LibraryItemDto[]>{
          return this.http.get<LibraryItemDto[]>(`${this.URL}${userId}`);
     }
+
+    deleteBookAssignment(id: number): Observable<void>{
+        return this.http.delete<void>(`${this.URL}${id}`);
+    }
 }
