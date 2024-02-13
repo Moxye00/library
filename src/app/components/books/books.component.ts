@@ -12,9 +12,8 @@ import { userService } from 'src/services/user.service';
 export class BooksComponent implements OnInit{
   allBooks: Book[] = [];
   showSuccessMessage: boolean = false;
-  searchQuery: string = '';
-  searchResultsBooks: Book[] = [];
-  showResults: boolean = false;
+  showErrorMessage: boolean = false;
+  hideBookList: boolean=false;
 
   constructor(private bookService: bookService, private authService: AuthService, private userService: userService){}
 
@@ -47,28 +46,16 @@ export class BooksComponent implements OnInit{
         }, 
         error: (error) => {
           console.error('Book not added to library', error);
+          this.showErrorMessage = true;
+          setTimeout(() => {
+            this.showErrorMessage = false;
+          }, 5000);
         }
       });
     } else {
-      console.error('user non loggato');
-      alert('user non loggato');
+      console.error('Unauthenticated user.');
+      alert('Please log in to add books to your list.');
     }
-  }
-
-  searchBooks() {
-    this.bookService.getBooksByTitle(this.searchQuery).subscribe((book) => {
-      this.searchResultsBooks = book;
-      this.showResults = true;
-      console.log(book);
-    });
-  }
-  
-  search() {
-    this.searchBooks();
-  }
-
-  closeResults() {
-    this.showResults = false;
   }
   
 }

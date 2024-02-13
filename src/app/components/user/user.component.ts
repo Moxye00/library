@@ -16,6 +16,7 @@ export class UserComponent implements OnInit{
   userData: AuthUser | null = null;
   user!: User;
   userBooks: LibraryItemDto[] = [];
+  showAlreadyAddedMessage: boolean = false;
 
   constructor(private authService: AuthService, private userService: userService, private router: Router ) {}
 
@@ -54,6 +55,29 @@ export class UserComponent implements OnInit{
 
   viewBookDetails(bookId: number) {
     this.router.navigate(['/books', bookId]);
+  }
+
+  assignBookToUser(bookId: number): void {
+    if (this.userBooks.some(item => item.bookId === bookId)) {
+      this.showAlreadyAddedMessage = true;
+      console.error('The book is already on your list.');
+    } else {
+      const userId = this.userData?.user.id;
+      if (userId) {
+        this.userService.assignBookToUser(userId, bookId).subscribe({
+          next: () => {
+            console.log('Book successfully added to your list!');
+            this.fetchAssignedBook(userId);
+          },
+          error: (error) => {
+            console.error('Error adding book to your list:', error);
+          }
+        });
+      } else {
+        console.error('Unauthenticated user.');
+        alert('Please log in to add books to your list.');
+      }
+    }
   }
 
 }

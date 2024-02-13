@@ -7,6 +7,10 @@
       </div>
   </div>
 </div>
+<select [(ngModel)]="selectedGenre" class="btn btn-primary rounded-pill py-2 px-4 position-absolute me-2" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+  <option value="">Seleziona il genere</option>
+  <option *ngFor="let genre of searchResultsGenres" [value]="genre.id">{{ genre.genre }}</option>
+</select>
 <!--/search bar-->
 
 <!--search author-->
@@ -35,6 +39,14 @@
 <!--/search author-->
 
 <!--search book-->
+<!--message-->
+<div *ngIf="showSuccessMessage" class="alert alert-success" role="alert" style="display: block;">
+  Book added to library successfully!
+</div>
+<div *ngIf="showErrorMessage" class="alert alert-success" role="alert" style="display: block;">
+  Book already present in the library.
+</div>                    
+<!--/message-->
 <div class="container" *ngIf="showResults && searchResultsBooks.length > 0">
   <button (click)="closeResults()" class="btn btn-primary mt-3" style="margin-bottom: 10px;">Close results</button>
   <div class="row">
@@ -51,6 +63,7 @@
           </div>
           <div class="btn-group">
             <button type="button" class="btn btn-sm btn-outline-secondary btn-hover-blue" [routerLink]="['/books', book.id!]" routerLinkActive="active">View</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary btn-hover-blue" (click)="assignBookToUser(book.id)">Add</button>
           </div>
         </div>
       </div>
@@ -61,3 +74,10 @@
   </div>
 </div>
 <!--/search book-->
+
+<!--the search found nothing-->
+<div *ngIf="showResults && searchResultsAuthors.length === 0 && searchResultsBooks.length === 0" class="container mt-4">
+  <p>No results found.</p>
+  <button (click)="closeResults()" class="btn btn-primary mt-3">Come back</button>
+</div>
+<!--/the search found nothing-->
