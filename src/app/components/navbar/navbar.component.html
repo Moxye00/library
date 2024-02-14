@@ -9,20 +9,28 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="navbar-nav mx-xl-3">
-                    <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+                    <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                        <i class="bi-house-door-fill"></i> Home
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/books" routerLinkActive="active" style="color: white;">Books</a>
+                    <a class="nav-link" routerLink="/books" routerLinkActive="active" style="color: white;">
+                        <i class="bi-book-fill"></i> Books
+                    </a>
                 </li>
             </ul>
             <ul class="navbar-nav" *ngIf="!checkLogin()">
                 <li class="navbar-nav mx-xl-5">
-                    <a class="nav-link" routerLink="/login" routerLinkActive="active" style="color: white;">Login</a>
+                    <a class="nav-link" routerLink="/login" routerLinkActive="active" style="color: white;">
+                        <i class="fas fa-user"></i> Login
+                    </a>
                 </li>
             </ul>
             <ul class="navbar-nav" *ngIf="checkLogin()">
                 <li class="navbar-nav mx-xl-5">
-                    <a class="nav-link" routerLink="/user" routerLinkActive="active" style="color: white;">User</a>
+                    <a class="nav-link" routerLink="/user" routerLinkActive="active" style="color: white;">
+                        <i class="fas fa-user"></i> User
+                    </a>                  
                 </li>
             </ul>
         </div>

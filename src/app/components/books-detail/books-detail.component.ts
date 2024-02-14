@@ -24,8 +24,25 @@ constructor(private bookService: bookService, private router: Router, private ac
     this.bookId = this.activatedRoute.snapshot.params['booksId'];
     console.log(this.bookId);
     this.loadBookDetails();
+    this.loadRandomBooks();
   }
  
+  loadRandomBooks(){
+    if(this.bookDetails){
+      const genreId = this.bookDetails.genre.id;
+      const limit = 4;
+      this.bookService.getRandomBooksByGenre(genreId, limit).subscribe({
+        next: books => {
+          this.books = books;
+          console.log(books);
+        },
+        error: err => {
+          console.error('errore durante il recupero di libri random', err);
+        }
+      });
+    }  
+  }
+
   loadBookDetails(){
     this.bookService.getBookDetail(this.bookId).subscribe({
       next: b => {
