@@ -1,41 +1,41 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Book } from 'src/model/dtos/book';
-import { Genre } from 'src/model/dtos/genre';
 import { AuthService } from 'src/services/authservice.service';
 import { bookService } from 'src/services/book.service';
 import { userService } from 'src/services/user.service';
 
 @Component({
-  selector: 'app-books-detail',
-  templateUrl: './books-detail.component.html',
-  styleUrls: ['./books-detail.component.css']
+  selector: 'app-books-card',
+  templateUrl: './books-card.component.html',
+  styleUrls: ['./books-card.component.css']
 })
-export class BooksDetailComponent implements OnInit{
+export class BooksCardComponent implements OnInit{
   bookId!: number;
   bookDetails!: Book;
   showSuccessMessage: boolean = false;
   showErrorMessage: boolean = false;
   books: Book[] = [];
 
-constructor(private bookService: bookService, private router: Router, private activatedRoute: ActivatedRoute, 
-            private authService: AuthService, private userService: userService) {}
+  constructor(private bookService: bookService, private router: Router, private activatedRoute: ActivatedRoute, 
+              private authService: AuthService, private userService: userService) {}
+
   ngOnInit(): void {
     this.bookId = this.activatedRoute.snapshot.params['booksId'];
     this.loadBookDetails();
   }
- 
+
   loadRandomBooks(){
-      const genreId = this.bookDetails.genre.id;
-      const limit = 4;
-      this.bookService.getRandomBooksByGenre(genreId, limit).subscribe({
-        next: books => {
-          this.books = books;
-        },
-        error: err => {
-          console.error('errore durante il recupero di libri random', err);
-        }
-      }); 
+    const genreId = this.bookDetails.genre.id;
+    const limit = 4;
+    this.bookService.getRandomBooksByGenre(genreId, limit).subscribe({
+      next: books => {
+        this.books = books;
+      },
+      error: err => {
+        console.error('errore durante il recupero di libri random', err);
+      }
+    }); 
   }
 
   loadBookDetails(){
@@ -50,7 +50,7 @@ constructor(private bookService: bookService, private router: Router, private ac
       }
     })
   }
-
+  
   assignBookToUser(bookId: number): void {
     const userId = this.authService.checkLogin()?.user.id;
     if(userId){

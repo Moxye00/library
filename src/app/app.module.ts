@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './components/footer/footer.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { RouterModule } from '@angular/router';
+import { BooksCardComponent } from './components/books-card/books-card.component';
 
 
 
@@ -33,7 +34,7 @@ import { RouterModule } from '@angular/router';
     SearchBarComponent,
     NavbarComponent,
     FooterComponent,
-    
+    BooksCardComponent,
   ],
   imports: [
     BrowserModule,

@@ -41,8 +41,8 @@ export class bookService{
     return this.http.get<Book[]>(url, { params });
   }
 
-  getRandomBooksByGenre(genreId: number, limit: number): Observable<Book[]> {
-    const params = new HttpParams().set('genreId', genreId).set('limit', limit.toString());
+  getRandomBooksByGenre(id: number, limit: number): Observable<Book[]> {
+    const params = new HttpParams().set('id', id).set('limit', limit.toString());
     return this.http.get<Book[]>(`${this.URL}four-books`,{params});
   }
 
