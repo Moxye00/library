@@ -75,6 +75,8 @@
 <!--/book detail-->
 
 <!--book recommended-->
-<h4>You might also be interested in...</h4>
-<app-books-card></app-books-card>
+<div *ngIf="books.length">
+    <h4 class="container">You might also be interested in...</h4>
+    <app-books-card *ngFor="let b of books" [bookDetails]="b" (selected)="assignBookToUser($event)"></app-books-card>
+</div>
 <!--/book recommended-->

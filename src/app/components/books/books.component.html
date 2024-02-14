@@ -29,25 +29,8 @@
             <div class="container" *ngIf="!hideBookList">
             <div class="row">
                 <div class="col-md-4" *ngFor="let b of allBooks">
-                    <div class="carbon-example flex-wrapper" *ngFor="let a of b.authors">
-                        <img [src]="b.img" alt="image">
-                            <div class="d-flex">
-                                <div class="vr" style="height: 185px; border-right: 1px solid black;"></div>
-                            </div>
-                        <div class="inner-wrapper text-center" style="color: black;">
-                            <p>{{ b.title }}</p>
-                            <p class="text-muted d-block mb-2 small">{{ a.firstName }} {{ a.lastName }}</p>
-                            <p class="text-muted d-block mb-2 small">{{ b.genre.genre }}</p>
-                            <div class="wrapper">
-                                <div class="divider div-transparent div-dot"></div>
-                            </div>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary btn-hover-blue" [routerLink]="['/books', b.id!]" routerLinkActive="active">View</button>
-                                <button type="button" class="btn btn-sm btn-outline-secondary btn-hover-blue" (click)="assignBookToUser(b.id)">Add</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>   
+                    <app-books-card [bookDetails]="b" (selected)="assignBookToUser($event)"></app-books-card>
+                </div>
             </div>
             </div>
         </div>

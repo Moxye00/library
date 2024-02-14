@@ -21,8 +21,14 @@ export class BooksDetailComponent implements OnInit{
 constructor(private bookService: bookService, private router: Router, private activatedRoute: ActivatedRoute, 
             private authService: AuthService, private userService: userService) {}
   ngOnInit(): void {
-    this.bookId = this.activatedRoute.snapshot.params['booksId'];
-    this.loadBookDetails();
+    this.activatedRoute.paramMap.subscribe(
+      pm => {
+        let idString = pm.get('bookId')!;
+        this.bookId = +idString;
+        console.log(this.bookId);
+        this.loadBookDetails();
+      }
+    );
   }
  
   loadRandomBooks(){
@@ -30,7 +36,7 @@ constructor(private bookService: bookService, private router: Router, private ac
       const limit = 4;
       this.bookService.getRandomBooksByGenre(genreId, limit).subscribe({
         next: books => {
-          this.books = books;
+          this.books = books.filter(b => b.id != this.bookDetails.id);
         },
         error: err => {
           console.error('errore durante il recupero di libri random', err);
