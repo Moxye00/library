@@ -14,9 +14,6 @@ export class BooksComponent implements OnInit{
   showSuccessMessage: boolean = false;
   showErrorMessage: boolean = false;
   hideBookList: boolean=false;
-  currentPage: number=1;
-  pageSize: number=12;
-  pagedBooks: Book[] = [];
 
   constructor(private bookService: bookService, private authService: AuthService, private userService: userService){}
 
@@ -27,9 +24,8 @@ export class BooksComponent implements OnInit{
   fetchAllBooks() {
     this.bookService.getAllBooks().subscribe({
       next: b => {
-          this.pagedBooks = b;
+          this.allBooks = b;
           console.log(this.allBooks);
-          this.setPage(1);
       },
       error: (error) => {
           console.error('Errore nel recupero dei libri:', error);
@@ -61,6 +57,7 @@ export class BooksComponent implements OnInit{
       alert('Please log in to add books to your list.');
     }
   }
+<<<<<<< HEAD
 
   pageChanged(page:number): void {
     this.setPage(page);
@@ -73,5 +70,7 @@ export class BooksComponent implements OnInit{
     this.pagedBooks = this.allBooks.slice(startIndex, endIndex);
     this.currentPage = page;
   }
+=======
+>>>>>>> 2b4f396e9285d837f569b0349ac7bf5fef8d3f36
 
 }

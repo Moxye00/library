@@ -16,7 +16,7 @@
 <!--/message-->
 <!--book-detail-->
 <div class="container" *ngIf="bookDetails">
-    <div class="card">
+    <div class="card" *ngFor="let a of bookDetails.authors">
         <div class="card-body">
             <div class="row">
                 <div class="col-lg-5 col-md-5 col-sm-6">
@@ -37,11 +37,11 @@
                             <tbody>
                                 <tr>
                                     <td width="390">Author:</td>
-                                    <td>{{ bookDetails.authors }}</td>
+                                    <td>{{ a.firstName }} {{ a.lastName }}</td>
                                 </tr>
                                 <tr>
                                     <td>Genre:</td>
-                                    <td>{{ bookDetails.genre }}</td>
+                                    <td>{{ bookDetails.genre.genre }}</td>
                                 </tr>
                                 <tr>
                                     <td>Pages:</td>
@@ -61,7 +61,7 @@
                                 </tr>
                                 <tr>
                                     <td>Feedback:</td>
-                                    <td>{{ bookDetails }}</td>
+                                    <td>{{ bookDetails.feedback.comment}} |  Stars: {{ bookDetails.feedback.rating}} |  Date pubblication: {{ bookDetails.feedback.publication }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -72,3 +72,30 @@
     </div>
 </div>
 <!--/book-detail-->
+
+<div class="container">
+    <div class="container">
+    <div class="row">
+        <div class="col-md-4" *ngIf="bookDetails">
+            <div class="carbon-example flex-wrapper" *ngFor="let a of bookDetails.authors">
+                <img [src]="bookDetails.img" alt="image">
+                    <div class="d-flex">
+                        <div class="vr" style="height: 185px; border-right: 1px solid black;"></div>
+                    </div>
+                <div class="inner-wrapper text-center" style="color: black;">
+                    <p>{{ bookDetails.title }}</p>
+                    <p class="text-muted d-block mb-2 small">{{ a.firstName }} {{ a.lastName }}</p>
+                    <p class="text-muted d-block mb-2 small">{{ bookDetails.genre.genre }}</p>
+                    <div class="wrapper">
+                        <div class="divider div-transparent div-dot"></div>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary btn-hover-blue" [routerLink]="['/books', bookDetails.id!]" routerLinkActive="active">View</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary btn-hover-blue" (click)="assignBookToUser(bookDetails.id)">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>   
+    </div>
+    </div>
+</div>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/services/authservice.service';
 import { Router } from '@angular/router';
 
@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent{
   firstname: string = '';
   lastname: string = '';
   email: string = '';
@@ -15,6 +15,8 @@ export class LoginComponent {
   errorMessage: string = '';
 
   constructor(private authService: AuthService, private router: Router) {}
+  
+  
 
   login(): void {
 
@@ -48,7 +50,11 @@ export class LoginComponent {
       },
       (error) => {
         console.error('Registration Failed', error);
-        this.errorMessage = 'Errore durante la registrazione. Riprova.';
+        if (error.status === 400 && error.error === "L'indirizzo email è già in uso"){
+          this.errorMessage = 'L\'indirizzo email è già in suo. Si prega di utilizzare un altro indirizzo email.';
+        } else {
+          this.errorMessage = 'Errore durante la registrazione. Riprova.';
+        }
       }
     );
   }
