@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
+import { Observable, catchError, tap, throwError } from 'rxjs';
 import { Book } from 'src/model/dtos/book';
 import { AuthService } from 'src/services/authservice.service';
 import { bookService } from 'src/services/book.service';
@@ -14,13 +16,23 @@ export class BooksComponent implements OnInit{
   showSuccessMessage: boolean = false;
   showErrorMessage: boolean = false;
   hideBookList: boolean=false;
+  paginatedBooks: Book[] = [];
+  pageSize = 6;
+  pageEvent: PageEvent | undefined;
 
   constructor(private bookService: bookService, private authService: AuthService, private userService: userService){}
 
   ngOnInit(): void {
-    this.fetchAllBooks();
+    this.getBooks().subscribe(books => {
+      this.allBooks = books;
+      this.paginate({pageIndex: 0, pageSize: this.pageSize} as PageEvent);
+    });
   }
-
+  paginate(event: PageEvent) {
+    const startIdx = event.pageIndex * event.pageSize;
+    const endIdx = startIdx + event.pageSize;
+    this.paginatedBooks = this.allBooks.slice(startIdx, endIdx);
+  }
   fetchAllBooks() {
     this.bookService.getAllBooks().subscribe({
       next: b => {
@@ -58,4 +70,16 @@ export class BooksComponent implements OnInit{
     }
   }
 
+  getBooks(): Observable<Book[]>{
+    return this.bookService.getAllBooks().pipe(
+      tap(b => {
+        this.allBooks = b;
+        console.log(this.allBooks);
+      }),
+      catchError((error) => {
+        console.error('Errore nel recupero dei libri:', error);
+        return throwError(error);
+      })
+    );
+  }
 }

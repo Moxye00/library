@@ -18,6 +18,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { RouterModule } from '@angular/router';
 import { BooksCardComponent } from './components/books-card/books-card.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 
@@ -41,7 +43,9 @@ import { BooksCardComponent } from './components/books-card/books-card.component
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    BrowserAnimationsModule,
+    MatPaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -17,24 +17,27 @@
         <app-search-bar></app-search-bar>
         <!--/search-bar-->
         <!--message-->
-        <div *ngIf="showSuccessMessage" class="alert alert-success" role="alert" style="display: block;">
+        <div *ngIf="showSuccessMessage" class="alert alert-success" role="alert">
             Book added to library successfully!
         </div>
-        <div *ngIf="showErrorMessage" class="alert alert-success" role="alert" style="display: block;">
+        <div *ngIf="showErrorMessage" class="alert alert-danger" role="alert">
             Book already present in the library.
         </div>                    
         <!--/message-->
         <!--books-->
-        <div class="container">
-            <div class="container" *ngIf="!hideBookList">
+        <div *ngIf="!hideBookList">
             <div class="row">
-                <div class="col-md-4" *ngFor="let b of allBooks">
+                <div class="col-md-4" *ngFor="let b of paginatedBooks">
                     <app-books-card [bookDetails]="b" (selected)="assignBookToUser($event)"></app-books-card>
                 </div>
             </div>
-            </div>
         </div>
         <!--/books-->
+        <!--paginator-->
+        <div>
+            <mat-paginator [length]="allBooks.length" [pageSize]="pageSize" [pageSizeOptions]="[6]" (page)="pageEvent = $event; paginate($event)"></mat-paginator>
+        </div>
+        <!--/paginator-->
     </div>
 </div>
 <!--/list books-->
