@@ -22,9 +22,6 @@
     font-size: 2.5em; 
 }
 
-.container {
-    margin-top: 30px;
-}
 .card {
     margin-bottom: 30px;
 }
@@ -93,7 +90,6 @@
 
 .carbon-example {
     padding: 8px;
-    background-color: #fff;
     width: 295px;
     box-sizing: border-box;
     border-radius: 6px;
@@ -120,7 +116,7 @@
   .carbon-example .inner-wrapper p {
     font-size: 12px;
     line-height: 1.33;
-    margin: 8px 0;
+    margin: 3px 0;
   }
   
   .carbon-example .inner-wrapper p.fine-print {
@@ -133,8 +129,8 @@
   
   .btn-hover-blue:hover {
     color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
+    background-color: rgba(19, 53, 123, 0.8);
+    border-color: rgba(19, 53, 123, 0.8);
   }
   
   .flex-wrapper {

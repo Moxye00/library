@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { every } from 'rxjs';
 import { Book } from 'src/model/dtos/book';
 
 

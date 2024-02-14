@@ -16,7 +16,7 @@
 <!--/message-->
 
 <!--book detail-->
-<div class="container" *ngIf="bookDetails">
+<div class="container" *ngIf="bookDetails" style="margin-top: 30px;">
     <div class="card" *ngFor="let a of bookDetails.authors">
         <div class="card-body">
             <div class="row">
@@ -75,8 +75,18 @@
 <!--/book detail-->
 
 <!--book recommended-->
-<div *ngIf="books.length">
+<div class="container">
     <h4 class="container">You might also be interested in...</h4>
-    <app-books-card *ngFor="let b of books" [bookDetails]="b" (selected)="assignBookToUser($event)"></app-books-card>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div *ngIf="books.length">
+                    <div class="carbon-example flex-wrapper">
+                        <app-books-card *ngFor="let b of books" [bookDetails]="b" (selected)="assignBookToUser($event)"></app-books-card>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <!--/book recommended-->

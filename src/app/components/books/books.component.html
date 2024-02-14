@@ -27,14 +27,17 @@
         <!--books-->
         <div class="container">
             <div class="container" *ngIf="!hideBookList">
-            <div class="row">
-                <div class="col-md-4" *ngFor="let b of allBooks">
-                    <app-books-card [bookDetails]="b" (selected)="assignBookToUser($event)"></app-books-card>
+                <div class="row">
+                    <div class="col-md-4" *ngFor="let b of paginatedBooks">
+                        <app-books-card [bookDetails]="b" (selected)="assignBookToUser($event)"></app-books-card>
+                    </div>
                 </div>
-            </div>
             </div>
         </div>
         <!--/books-->
+        <div *ngIf="!hideBookList &&! searching">
+            <mat-paginator [length]="allBooks.length" [pageSize]="pageSize" [pageSizeOptions]="[9]" (page)="pageEvent=$event; paginate($event)" style="margin-top: 20px;"></mat-paginator>
+        </div>    
     </div>
 </div>
 <!--/list books-->

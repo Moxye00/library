@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Book } from 'src/model/dtos/book';
-import { Genre } from 'src/model/dtos/genre';
 import { AuthService } from 'src/services/authservice.service';
 import { bookService } from 'src/services/book.service';
 import { userService } from 'src/services/user.service';
