@@ -7,7 +7,7 @@
       </div>
   </div>
 </div>
-<select [(ngModel)]="selectedGenre" class="form-select mt-3" (change)="searchByGenre()">
+<select [(ngModel)]="selectedGenre" class="form-select mt-3" (change)="searchByGenre()" style="margin-bottom: 10px;">
   <option value="">Select Genre</option>
   <option *ngFor="let genre of genres" [value]="genre.id">{{ genre.genre }}</option>
 </select>

@@ -14,7 +14,8 @@
 <div *ngIf="showSuccessMessage" class="alert alert-success" role="alert" style="display: block;">Book added to library successfully!</div>
 <div *ngIf="showErrorMessage" class="alert alert-success" role="alert" style="display: block;">Book already present in the library.</div> 
 <!--/message-->
-<!--book-detail-->
+
+<!--book detail-->
 <div class="container" *ngIf="bookDetails">
     <div class="card" *ngFor="let a of bookDetails.authors">
         <div class="card-body">
@@ -71,19 +72,21 @@
         </div>
     </div>
 </div>
-<!--/book-detail-->
+<!--/book detail-->
 
-<div class="container">
+<!--book recommended-->
+<div class="container" style="margin-bottom: 30px;">
+    <h4>You might also be interested in...</h4>
     <div class="container">
     <div class="row">
-        <div class="col-md-4" *ngIf="bookDetails">
+        <div class="col-md-4" *ngIf="loadRandomBooks">
             <div class="carbon-example flex-wrapper" *ngFor="let a of bookDetails.authors">
                 <img [src]="bookDetails.img" alt="image">
                     <div class="d-flex">
                         <div class="vr" style="height: 185px; border-right: 1px solid black;"></div>
                     </div>
                 <div class="inner-wrapper text-center" style="color: black;">
-                    <p>{{ bookDetails.title }}</p>
+                    <p>{{ books[0].title }}</p>
                     <p class="text-muted d-block mb-2 small">{{ a.firstName }} {{ a.lastName }}</p>
                     <p class="text-muted d-block mb-2 small">{{ bookDetails.genre.genre }}</p>
                     <div class="wrapper">
@@ -99,3 +102,4 @@
     </div>
     </div>
 </div>
+<!--/book recommended-->
