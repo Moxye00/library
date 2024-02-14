@@ -47,7 +47,7 @@ export class BooksComponent implements OnInit{
           setTimeout(() => {
             this.showSuccessMessage = false;
           }, 5000);
-        }, 
+        },
         error: (error) => {
           console.error('Book not added to library', error);
           this.showErrorMessage = true;
@@ -61,7 +61,7 @@ export class BooksComponent implements OnInit{
       alert('Please log in to add books to your list.');
     }
   }
-  
+
   pageChanged(page:number): void {
     this.setPage(page);
     console.log(this.currentPage);
