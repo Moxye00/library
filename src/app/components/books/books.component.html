@@ -36,7 +36,7 @@
         </div>
         <!--/books-->
         <div *ngIf="!hideBookList &&! searching">
-            <mat-paginator [length]="allBooks.length" [pageSize]="pageSize" [pageSizeOptions]="[9]" (page)="pageEvent=$event; paginate($event)" style="margin-top: 20px;"></mat-paginator>
+            <mat-paginator [length]="allBooks.length" [pageSize]="pageSize" [pageSizeOptions]="[9]" (page)="pageEvent=$event; paginate($event)" style="margin-top: 20px; background: #232a34;"></mat-paginator>
         </div>    
     </div>
 </div>
