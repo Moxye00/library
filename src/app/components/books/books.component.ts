@@ -57,20 +57,5 @@ export class BooksComponent implements OnInit{
       alert('Please log in to add books to your list.');
     }
   }
-<<<<<<< HEAD
-
-  pageChanged(page:number): void {
-    this.setPage(page);
-    console.log(this.currentPage);
-  }
-
-  setPage(page:number): void {
-    const startIndex = (page - 1) * this.pageSize;
-    const endIndex = startIndex + this.pageSize;
-    this.pagedBooks = this.allBooks.slice(startIndex, endIndex);
-    this.currentPage = page;
-  }
-=======
->>>>>>> 2b4f396e9285d837f569b0349ac7bf5fef8d3f36
 
 }
