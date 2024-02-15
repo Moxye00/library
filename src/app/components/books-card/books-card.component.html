@@ -1,0 +1,20 @@
+<div class="carbon-example flex-wrapper">
+    <img [src]="bookDetails?.img" alt="image">
+    <div class="d-flex">
+        <div class="vr" style="height: 185px; border-right: 1px solid black;"></div>
+    </div>
+    <div class="inner-wrapper text-center" style="color: black;">
+        <p>{{ bookDetails?.title }}</p>
+        <div *ngFor="let a of bookDetails?.authors">
+            <p class="text-muted d-block mb-2 small">{{ a.firstName }} {{ a.lastName }}</p>
+        </div>
+        <p class="text-muted d-block mb-2 small">{{ bookDetails?.genre?.genre }}</p>
+        <div class="wrapper">
+            <div class="divider div-transparent div-dot"></div>
+        </div>
+        <div class="btn-group">
+            <button type="button" class="btn btn-sm btn-outline-secondary btn-hover-blue" [routerLink]="['/books', bookDetails?.id]" routerLinkActive="active">View</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary btn-hover-blue" (click)="bookSelected()">Add</button>
+        </div>
+    </div>
+</div>

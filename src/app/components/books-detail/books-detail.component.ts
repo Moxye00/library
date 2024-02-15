@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Book } from 'src/model/dtos/book';
-import { Genre } from 'src/model/dtos/genre';
 import { AuthService } from 'src/services/authservice.service';
 import { bookService } from 'src/services/book.service';
 import { userService } from 'src/services/user.service';
@@ -21,32 +20,34 @@ export class BooksDetailComponent implements OnInit{
 constructor(private bookService: bookService, private router: Router, private activatedRoute: ActivatedRoute, 
             private authService: AuthService, private userService: userService) {}
   ngOnInit(): void {
-    this.bookId = this.activatedRoute.snapshot.params['booksId'];
-    console.log(this.bookId);
-    this.loadBookDetails();
-    this.loadRandomBooks();
+    this.activatedRoute.paramMap.subscribe(
+      pm => {
+        let idString = pm.get('bookId')!;
+        this.bookId = +idString;
+        console.log(this.bookId);
+        this.loadBookDetails();
+      }
+    );
   }
  
   loadRandomBooks(){
-    if(this.bookDetails){
       const genreId = this.bookDetails.genre.id;
       const limit = 4;
       this.bookService.getRandomBooksByGenre(genreId, limit).subscribe({
         next: books => {
-          this.books = books;
-          console.log(books);
+          this.books = books.filter(b => b.id != this.bookDetails.id);
         },
         error: err => {
           console.error('errore durante il recupero di libri random', err);
         }
-      });
-    }  
+      }); 
   }
 
   loadBookDetails(){
     this.bookService.getBookDetail(this.bookId).subscribe({
       next: b => {
         this.bookDetails = b;
+        this.loadRandomBooks();
         console.log(this.bookDetails);
       },
       error: err => {

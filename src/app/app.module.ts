@@ -12,12 +12,12 @@ import { AuthorComponent } from './components/author/author.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { authorService } from 'src/services/author.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './components/footer/footer.component';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { RouterModule } from '@angular/router';
-
+import { BooksCardComponent } from './components/books-card/books-card.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
@@ -33,14 +33,16 @@ import { RouterModule } from '@angular/router';
     SearchBarComponent,
     NavbarComponent,
     FooterComponent,
-    
+    BooksCardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    BrowserAnimationsModule,
+    MatPaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

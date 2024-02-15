@@ -1,27 +1,6 @@
-.home-slider {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    text-align: center;
+.container {
+    margin-top: 30px;
 }
-
-.home-slider .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%; 
-}
-
-.home-slider .slider-text {
-    width: 100%; 
-}
-
-.home-slider h1 {
-    color: #fff; 
-    font-size: 2.5em; 
-}
-
 .card {
     margin-bottom: 30px;
 }
@@ -90,6 +69,7 @@
 
 .carbon-example {
     padding: 8px;
+    background-color: #fff;
     width: 295px;
     box-sizing: border-box;
     border-radius: 6px;
@@ -116,7 +96,7 @@
   .carbon-example .inner-wrapper p {
     font-size: 12px;
     line-height: 1.33;
-    margin: 3px 0;
+    margin: 8px 0;
   }
   
   .carbon-example .inner-wrapper p.fine-print {

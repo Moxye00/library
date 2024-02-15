@@ -66,8 +66,8 @@ body{margin-top:20px;}
 
 .btn-hover-blue:hover {
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: rgba(19, 53, 123, 0.8);
+  border-color: rgba(19, 53, 123, 0.8);
 }
 
 .flex-wrapper {

@@ -16,7 +16,7 @@
 <!--/message-->
 
 <!--book detail-->
-<div class="container" *ngIf="bookDetails">
+<div class="container" *ngIf="bookDetails" style="margin-top: 30px;">
     <div class="card" *ngFor="let a of bookDetails.authors">
         <div class="card-body">
             <div class="row">
@@ -76,30 +76,11 @@
 
 <!--book recommended-->
 <div class="container" style="margin-bottom: 30px;">
-    <h4>You might also be interested in...</h4>
-    <div class="container">
+    <h4 class="container">You might also be interested in...</h4>
     <div class="row">
-        <div class="col-md-4" *ngIf="loadRandomBooks">
-            <div class="carbon-example flex-wrapper" *ngFor="let a of bookDetails.authors">
-                <img [src]="bookDetails.img" alt="image">
-                    <div class="d-flex">
-                        <div class="vr" style="height: 185px; border-right: 1px solid black;"></div>
-                    </div>
-                <div class="inner-wrapper text-center" style="color: black;">
-                    <p>{{ books[0].title }}</p>
-                    <p class="text-muted d-block mb-2 small">{{ a.firstName }} {{ a.lastName }}</p>
-                    <p class="text-muted d-block mb-2 small">{{ bookDetails.genre.genre }}</p>
-                    <div class="wrapper">
-                        <div class="divider div-transparent div-dot"></div>
-                    </div>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary btn-hover-blue" [routerLink]="['/books', bookDetails.id!]" routerLinkActive="active">View</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary btn-hover-blue" (click)="assignBookToUser(bookDetails.id)">Add</button>
-                    </div>
-                </div>
-            </div>
-        </div>   
-    </div>
+        <div class="col-md-3" *ngFor="let b of books">
+            <app-books-card [bookDetails]="b" (selected)="assignBookToUser($event)"></app-books-card>
+        </div>
     </div>
 </div>
 <!--/book recommended-->
