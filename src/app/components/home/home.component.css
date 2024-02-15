@@ -1,3 +1,14 @@
+.responsive-img {
+  width: 150%;    /* make the image take the full width of the container */
+  height: auto;   /* auto height to maintain aspect ratio */
+  object-fit: contain; /* ensure the image scales nicely */
+}
+.slider {
+  position: fixed !important;
+  bottom: 0 !important;
+  width: 100% !important; /* This will make the slider full width */
+  z-index: 9999 !important; /* This will ensure the slider stays on top of other content */
+}
 .carousel-caption {
     bottom: 10%;
 }
@@ -345,7 +356,7 @@ body{margin-top:20px;}
 .slider {
 	background: #1B1A55;
 	box-shadow: 0 10px 20px -5px black;
-	height: 100px;
+	height: 150px;
 	margin: auto;
 	overflow:hidden;
 	position: relative;
