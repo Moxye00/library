@@ -27,9 +27,9 @@
                 </li>
             </ul>
             <ul class="navbar-nav" *ngIf="checkLogin()">
-                <li class="navbar-nav mx-xl-5">
+                <li class="navbar-nav mx-xl-5" *ngIf="userData">
                     <a class="nav-link" routerLink="/user" routerLinkActive="active" style="color: white;">
-                        <i class="fas fa-user"></i> User
+                        <i class="fas fa-user"></i> {{ userData.user.firstname}} {{ userData.user.lastname }}
                     </a>                  
                 </li>
             </ul>

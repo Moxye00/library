@@ -1,9 +1,9 @@
 <!--header-->
-<section class="home-slider owl-carousel img" style="background-image: url(assets/img/he.jpeg); display: block; height: 350px;">
-    <div class="container">
+<section class="home-slider owl-carousel img" style="background-image: url(assets/img/libaba.png); display: block; height: 350px;">
+    <div class="container" *ngIf="bookDetails">
         <div class="row slider-text justify-content-center align-items-center">
             <div class="col-md-7 col-sm-12 text-center ftco-animate">
-                <h1 class="mb-3 mt-5 bread">Book detail</h1>
+                <h1 class="mb-3 mt-5 bread">{{ bookDetails.title }} Details</h1>
             </div>
         </div>
     </div>

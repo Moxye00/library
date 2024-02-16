@@ -3,6 +3,7 @@ body{margin-top:20px;}
     background:#232a34;
 	padding-bottom: 20px;
 	padding-top: 45px;
+	position:static;
 }
 
 .footer_menu {
